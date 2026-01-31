@@ -1,0 +1,14 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "npm run minify:css && npm run minify:js",
+        "minify:css": "npx clean-css-cli style.css -o style.min.css",
+        "minify:js": "npx terser script.js -o script.min.js -c -m && npx terser hero3d.js -o hero3d.min.js -c -m",
+        "serve": "npx -y http-server -p 8080"
+    },
+    "devDependencies": {
+        "clean-css-cli": "^5.6.3",
+        "terser": "^5.31.0"
+    }
+}
