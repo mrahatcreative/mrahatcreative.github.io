@@ -1,23 +1,20 @@
 :root {
-    --bg-dark: #02040a;
-    /* Midnight Black */
+    --bg-dark: #050505; /* Deepest Black */
     --text-primary: #ffffff;
-    --text-secondary: #e5e5e5;
-    /* Brighten secondary text */
-    --accent-blue: #0071e3;
-    /* Apple Blue - Main Accent */
-    --accent-glow: rgba(0, 113, 227, 0.5);
-    --accent-purple: #5e5ce6;
-    /* Cool Indigo */
-    --accent-pink: #00d2ff;
-    /* Electric Cyan - Secondary Accent */
-    --glass-bg: rgba(10, 12, 18, 0.85);
-    /* Cool dark glass */
-    --glass-border: rgba(255, 255, 255, 0.12);
-    /* Crisper borders */
-    --glass-highlight: rgba(255, 255, 255, 0.15);
-    --card-surface: rgba(15, 18, 25, 0.75);
-    /* Cool charcoal/midnight cards */
+    --text-secondary: #e0e0e0;
+    
+    /* Vibrant Neon Accents */
+    --accent-blue: #00d2ff; /* Cyber Blue */
+    --accent-glow: rgba(0, 210, 255, 0.6);
+    --accent-purple: #be29ec; /* Neon Purple */
+    --accent-pink: #ff0099; /* Hot Pink */
+    
+    /* Premium Glass */
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.2);
+    --card-surface: rgba(255, 255, 255, 0.03); /* Ultra subtle */
+    
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Outfit', sans-serif;
     --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -292,11 +289,13 @@ body {
 /* Glass Utilities */
 .glass-card,
 .glass-footer {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    transition: background-color 0.4s ease, border-color 0.4s ease;
-    will-change: background-color, border-color;
+    transition: all 0.4s ease;
+    will-change: transform, box-shadow;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 
 /* Reduce blur on mobile for massive performance gain */

@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', initTypewriter);
 
 function initTypewriter() {
     const roles = [
-        "Web Developer",
-        "Software Engineer",
-        "Video Editor",
+        "Web & Software Engineer",
+        "Film Maker",
         "Graphic Designer",
-        "Music Producer"
+        "Video Editor",
+        "Music Composer"
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -409,8 +409,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Lenis Smooth Scroll Removed for Performance - Native Scroll Restored
-// if (typeof Lenis !== 'undefined') { ... }
+// Lenis Smooth Scroll
+if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+}
 
 // Magnetic Buttons Effect
 if (window.matchMedia("(min-width: 992px)").matches) {
@@ -500,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Lenis Init Block 2 Removed
+// Lenis already initialized above
 
 // Loading Screen Logic (Min 3s)
 window.addEventListener('load', () => {
